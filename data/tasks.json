@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "title": "make the storage functions",
+        "description": "make the functions in storage.php to read\/write tasks from the file",
+        "priority": "High",
+        "due": null
+    },
+    {
+        "id": "2",
+        "title": "write to the json file",
+        "description": "make a function that writes tasks to the json file",
+        "priority": "High",
+        "due": null
+    },
+    {
+        "id": "69c542f88af60",
+        "title": "Make working post form",
+        "description": "Make the form in create.php that lets you add tasks",
+        "priority": "High",
+        "due": "null"
+    }
+]
