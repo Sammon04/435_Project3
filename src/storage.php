@@ -29,3 +29,26 @@ function writeTasks($tasks) {
         echo "Error when writing to file";
     }
 }
+
+function completeTask($id) {
+    $tasks = loadTasks();
+
+    foreach ($tasks as &$task) {
+        if ($task['id'] === $id) {
+            $task['complete'] = true;
+            break;
+        }
+    }
+
+    writeTasks($tasks);
+}
+
+function deleteTask($id) {
+    $tasks = loadTasks();
+
+    $tasks = array_filter($tasks, function($task) use ($id) {
+        return $task['id'] !== $id;
+    });
+
+    writeTasks($tasks);
+}

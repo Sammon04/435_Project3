@@ -1,23 +1,42 @@
-[
-    {
-        "id": "1",
-        "title": "make the storage functions",
-        "description": "make the functions in storage.php to read\/write tasks from the file",
-        "priority": "High",
-        "due": null
-    },
-    {
+{
+    "1": {
         "id": "2",
         "title": "write to the json file",
         "description": "make a function that writes tasks to the json file",
         "priority": "High",
-        "due": null
+        "due": null,
+        "complete": true
     },
-    {
+    "2": {
         "id": "69c542f88af60",
         "title": "Make working post form",
         "description": "Make the form in create.php that lets you add tasks",
         "priority": "High",
-        "due": "null"
+        "due": "null",
+        "complete": true
+    },
+    "3": {
+        "id": "69c693c4ab726",
+        "title": "Add form input validation",
+        "description": "Implement functions to sanitize and validate form data",
+        "priority": "High",
+        "due": "07-19-2026",
+        "complete": false
+    },
+    "4": {
+        "id": "69c69874cc21e",
+        "title": "Make priority a drop-down",
+        "description": "pretty self-explanatory",
+        "priority": "Medium",
+        "due": "3-27-2026",
+        "complete": false
+    },
+    "5": {
+        "id": "69c6a5511969b",
+        "title": "Complete form validation",
+        "description": "Ensure form values entered by the user adhere to certain rules",
+        "priority": "High",
+        "due": "03-27-2026",
+        "complete": false
     }
-]
+}
