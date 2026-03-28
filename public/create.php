@@ -1,6 +1,9 @@
 <?php
 require_once '../src/storage.php';
 require_once '../src/validation.php';
+require_once '../src/flash.php';
+
+session_start();
 
 $errors = [];
 $input = [
@@ -36,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         writeTasks($tasks);
 
+        setFlash("Task created successfully!");
         header("Location: index.php");
         exit;
     }
@@ -70,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <br><select name="priority">
+            <option value="" <?= $input['priority'] === '' ? 'selected' : '' ?>>None</option>
             <option value="Low" <?= $input['priority'] === 'Low' ? 'selected' : '' ?>>Low</option>
             <option value="Medium" <?= $input['priority'] === 'Medium' ? 'selected' : '' ?>>Medium</option>
             <option value="High" <?= $input['priority'] === 'High' ? 'selected' : '' ?>>High</option>

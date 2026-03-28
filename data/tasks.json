@@ -21,7 +21,7 @@
         "description": "Implement functions to sanitize and validate form data",
         "priority": "High",
         "due": "07-19-2026",
-        "complete": false
+        "complete": true
     },
     "4": {
         "id": "69c69874cc21e",
@@ -37,6 +37,22 @@
         "description": "Ensure form values entered by the user adhere to certain rules",
         "priority": "High",
         "due": "03-27-2026",
+        "complete": false
+    },
+    "6": {
+        "id": "69c7e0ab9c493",
+        "title": "Test no priority",
+        "description": "Test what happens when you create a task with no priority",
+        "priority": "",
+        "due": null,
+        "complete": false
+    },
+    "7": {
+        "id": "69c7e8b69d9d0",
+        "title": "test flash message 2",
+        "description": "really make sure the flash message for creating a task works",
+        "priority": "Low",
+        "due": "03-29-2026",
         "complete": false
     }
 }

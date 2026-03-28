@@ -1,14 +1,36 @@
 <?php
 require_once '../src/storage.php';
+require_once '../src/flash.php';
 
 session_start();
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
 
-$csrf_token = $_SESSION['csrf_token'];
+$csrf_token = csrfCreate();
+
+displayFlash();
+
 
 $tasks = loadTasks();
+$q = trim($_GET['q'] ?? '');
+$priority = $_GET['priority'] ?? '';
+
+$filteredTasks = array_filter($tasks, function($task) use ($q, $priority) {
+    if ($q !== '') {
+        $textMatch = 
+            stripos($task['title'], $q) !== false ||
+            stripos($task['description'], $q) !== false;
+        
+        if (!$textMatch) {
+            return false;
+        }
+    }
+
+    if ($priority !== '' && $task['priority'] !== $priority) {
+        return false;
+    }
+
+    return true;
+});
+
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +49,37 @@ $tasks = loadTasks();
 
     <h1>Task List</h1>
 
+    <h3>Filter Tasks</h3>
+    <form method="GET" action="index.php">
+        <input
+            type="text"
+            name="q"
+            placeholder="Search..."
+            value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
+        >
+
+        <select name="priority">
+            <option value="">ALL</option>
+            <option value="Low" <?= ($_GET['priority'] ?? '') === 'Low' ? 'selected' : '' ?>>Low</option>
+            <option value="Medium" <?= ($_GET['priority'] ?? '') === 'Medium' ? 'selected' : '' ?>>Medium</option>
+            <option value="High" <?= ($_GET['priority'] ?? '') === 'High' ? 'selected' : '' ?>>High</option>
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+
+
     <?php if (empty($tasks)): ?>
         <p>No tasks yet!</p>
+    <?php elseif (empty($filteredTasks)): ?>
+        <p>No tasks match filter!</p>
     <?php else: ?>
 
-        <?php foreach ($tasks as $task): ?>
+        <?php if (!empty($_GET) && !empty($filteredTasks)): ?>
+            <p><?= count($filteredTasks) ?> task(s) found</p>
+        <?php endif; ?>
+
+        <?php foreach ($filteredTasks as $task): ?>
 
             <p>Task: <?= htmlspecialchars($task['title']) ?></p>
             <p>Description: <?= htmlspecialchars($task['description']) ?></p>
