@@ -9,7 +9,7 @@ $errors = [];
 $input = [
     'title' => '',
     'description' => '',
-    'priority' => 'Low',
+    'priority' => '',
     'due' => ''
 ];
 
@@ -51,42 +51,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles.css">
     <title>TaskPad</title>
 </head>
 <body>
 
-    <nav>
-        <a href="index.php">Home</a> |
+    <header class="page-header">
+        <h1 class="page-title">Create Task</h1>
+    </header>
+
+    <nav class="page-nav">
+        <a href="index.php">Home</a>
         <a href="create.php">Create Task</a>
     </nav>
 
-    <h1>Create Task</h1>
+    <main class="content">
+        <form class="task-form" method="POST" action="create.php">
+            <input name="title" value="<?= htmlspecialchars($input['title']) ?>" placeholder="Task Title">
+            <?php if (isset($errors['title'])) : ?>
+                <p><?= htmlspecialchars($errors['title']) ?></p>
+            <?php endif; ?>
 
-    <form method="POST" action="create.php">
-        <input name="title" value="<?= htmlspecialchars($input['title']) ?>" placeholder="Task Title">
-        <?php if (isset($errors['title'])) : ?>
-            <p><?= htmlspecialchars($errors['title']) ?></p>
-        <?php endif; ?>
+            <br><textarea name="description" placeholder="Task Description"><?= htmlspecialchars($input['description']) ?></textarea>
+            <?php if (isset($errors['description'])) : ?>
+                <p><?= htmlspecialchars($errors['description']) ?></p>
+            <?php endif; ?>
 
-        <br><textarea name="description" placeholder="Task Description"><?= htmlspecialchars($input['description']) ?></textarea>
-        <?php if (isset($errors['description'])) : ?>
-            <p><?= htmlspecialchars($errors['description']) ?></p>
-        <?php endif; ?>
+            <br>
+            <select name="priority">
+                <option value="" <?= $input['priority'] === '' ? 'selected' : '' ?>>Priority</option>
+                <option value="Low" <?= $input['priority'] === 'Low' ? 'selected' : '' ?>>Low</option>
+                <option value="Medium" <?= $input['priority'] === 'Medium' ? 'selected' : '' ?>>Medium</option>
+                <option value="High" <?= $input['priority'] === 'High' ? 'selected' : '' ?>>High</option>
+            </select>
 
-        <br><select name="priority">
-            <option value="" <?= $input['priority'] === '' ? 'selected' : '' ?>>None</option>
-            <option value="Low" <?= $input['priority'] === 'Low' ? 'selected' : '' ?>>Low</option>
-            <option value="Medium" <?= $input['priority'] === 'Medium' ? 'selected' : '' ?>>Medium</option>
-            <option value="High" <?= $input['priority'] === 'High' ? 'selected' : '' ?>>High</option>
-        </select>
+            <br><input name="due" placeholder="Task Due Date" value="<?= $input['due'] ?>">
+            <?php if (isset($errors['due'])) : ?>
+                <p><?= htmlspecialchars($errors['due']) ?></p>
+            <?php endif; ?>
 
-        <br><input name="due" placeholder="Task Due Date" value="<?= $input['due'] ?>">
-        <?php if (isset($errors['due'])) : ?>
-            <p><?= htmlspecialchars($errors['due']) ?></p>
-        <?php endif; ?>
-
-        <br><button type="submit">Add Task</button>
-    </form>
+            <br><button type="submit">Add Task</button>
+        </form>
+    </main>
 </body>
 </html>
 

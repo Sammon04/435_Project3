@@ -9,7 +9,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!csrfValidate()){
-        die("Security error, invalid csrf token. Cannot process request!")
+        die("Security error, invalid csrf token. Cannot process request!");
     }
 
     $id = $_POST['id'] ?? '';

@@ -1,0 +1,149 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.85);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --secondary-color: rgba(37, 103, 146, 0.4);
+  --shadow-color: rgba(100,100,100,0.2);
+  --item-margin: 12px;
+  --small-border-radius: 4px;
+  --medium-border-radius: 8px;
+  --large-border-radius: 12px;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main";
+}
+
+.page-header { grid-area: header; }
+.page-nav { grid-area: nav; }
+.content { grid-area: main; }
+
+.page-header {
+    font-size: 2em;
+    line-height: 1;
+    margin: 12px;
+}
+
+.page-nav {
+    padding: 12px;
+}
+
+.page-nav a {
+    text-decoration: none;
+    color: rgb(150, 150, 250);
+    border: transparent;
+    border-radius: var(--medium-border-radius);
+    padding: 8px;
+}
+
+.page-nav a:hover {
+    background-color: var(--secondary-color);
+}
+
+.filter-section {
+    margin: 12px;
+}
+
+.task-list {
+    width: 500px;
+}
+
+.task-card {
+    position: relative;
+    background-color: var(--secondary-color);
+    border-radius: var(--large-border-radius);
+    box-shadow: 5px 5px 12px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-details > * {
+    margin: 8px;
+}
+
+.badge {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
+
+.priority-low {
+    color: green;
+}
+
+.priority-medium {
+    color: yellow;
+}
+
+.priority-high {
+    color: red;
+}
+
+.task-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.task-buttons form {
+    margin: 8px;
+}
+
+.task-buttons form button {
+    padding: 6px;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-form {
+    width: 500px;
+}
+
+.task-form > * {
+    margin: 8px;
+}
+
+.task-form input {
+    height: 30px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+    --secondary-color: rgba(150, 204, 240, 0.4);
+    --shadow-color: rgba(0,0,0,0.2)
+  }
+  button {
+    background-color: #cacaca;
+  }
+}
