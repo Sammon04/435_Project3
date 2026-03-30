@@ -4,7 +4,7 @@
 //If they return true, it means the input 'passed' the test
 
 function validateSpecialChars(string $text): bool {
-    return !preg_match('/[^a-zA-Z0-9 \/-_!?,]/', $text);
+    return !preg_match('/[^a-zA-Z0-9 \/-_!?.,]/', $text);
 }
 
 function validateLength(string $text, int $length): bool {

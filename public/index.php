@@ -7,8 +7,6 @@ session_start();
 
 $csrf_token = csrfCreate();
 
-displayFlash();
-
 
 $tasks = loadTasks();
 $q = trim($_GET['q'] ?? '');
@@ -78,6 +76,10 @@ $filteredTasks = array_filter($tasks, function($task) use ($q, $priority) {
         </section>
 
         <section class="task-list">
+
+            <div>
+                <?php displayFlash(); ?>
+            </div>
 
             <?php if (empty($tasks)): ?>
                 <p>No tasks yet!</p>

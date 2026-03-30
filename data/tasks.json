@@ -1,20 +1,4 @@
 {
-    "1": {
-        "id": "2",
-        "title": "write to the json file",
-        "description": "make a function that writes tasks to the json file",
-        "priority": "High",
-        "due": null,
-        "complete": true
-    },
-    "3": {
-        "id": "69c693c4ab726",
-        "title": "Add form input validation",
-        "description": "Implement functions to sanitize and validate form data",
-        "priority": "High",
-        "due": "07-19-2026",
-        "complete": true
-    },
     "4": {
         "id": "69c69874cc21e",
         "title": "Make priority a drop-down",
@@ -53,6 +37,22 @@
         "description": "asdfaggggggggggggggggg",
         "priority": "High",
         "due": "10-30-2003",
+        "complete": false
+    },
+    "9": {
+        "id": "69ca7975eb156",
+        "title": "Add csrf to task form",
+        "description": "add the csrf check to create.php",
+        "priority": "Medium",
+        "due": null,
+        "complete": true
+    },
+    "10": {
+        "id": "69ca7dc178b83",
+        "title": "test one more flash message",
+        "description": "test creating the form and fesefijaoifjdioii",
+        "priority": "Low",
+        "due": null,
         "complete": false
     }
 }

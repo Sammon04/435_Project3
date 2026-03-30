@@ -55,12 +55,25 @@ body {
     background-color: var(--secondary-color);
 }
 
-.filter-section {
+.filter-section form, h3 {
     margin: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-section form > *{
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+
+.filter-section form select {
+    width: 25%;
 }
 
 .task-list {
-    width: 500px;
+    max-width: 500px;
 }
 
 .task-card {
@@ -125,15 +138,49 @@ body {
 }
 
 .task-form {
-    width: 500px;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-.task-form > * {
-    margin: 8px;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.task-form input {
-    height: 30px;
+.task-form input, textarea, select {
+    width: 250px;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.task-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.task-form button {
+    width: 100%;
+    padding: 10px;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.error {
+    color: lightcoral;
+    font-size: 0.9em;
+    margin-top: 5px;
+    max-width: 250px;
+    text-wrap: balance;
 }
 
 @media (prefers-color-scheme: light) {
