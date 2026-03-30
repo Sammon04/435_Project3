@@ -34,6 +34,7 @@ body {
 .content { grid-area: main; }
 
 .page-header {
+    text-align: center;
     font-size: 2em;
     line-height: 1;
     margin: 12px;
@@ -66,10 +67,16 @@ body {
     padding: 8px;
     border-radius: 5px;
     margin-bottom: 12px;
+    min-width: 75px;
 }
 
 .filter-section form select {
     width: 25%;
+}
+
+.alert {
+    width: 50%;
+    margin: 0 auto;
 }
 
 .task-list {

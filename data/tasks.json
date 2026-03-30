@@ -1,20 +1,4 @@
 {
-    "5": {
-        "id": "69c6a5511969b",
-        "title": "Complete form validation",
-        "description": "Ensure form values entered by the user adhere to certain rules",
-        "priority": "High",
-        "due": "03-27-2026",
-        "complete": true
-    },
-    "6": {
-        "id": "69c7e0ab9c493",
-        "title": "Test no priority",
-        "description": "Test what happens when you create a task with no priority",
-        "priority": "",
-        "due": null,
-        "complete": true
-    },
     "7": {
         "id": "69c7e8b69d9d0",
         "title": "test flash message 2",

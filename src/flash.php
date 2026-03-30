@@ -1,5 +1,7 @@
 <?php
 
+//Just sets and displays a flash message in the $_SESSION superglobal
+
 function setFlash(string $message) {
     $_SESSION['flash-message'] = $message;
 }

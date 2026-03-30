@@ -1,4 +1,12 @@
 <?php
+
+//The page for creating a task
+//On POST to this page, it first checks the csrf token
+//Then creates a variable to hold the POST data
+//Also gets any errors in the data from validation.php
+//Then assuming no errors, it gets the list of tasks from storage, adds the new task to the list, and saves them
+//The form also preserves inputs on reload
+
 require_once '../src/storage.php';
 require_once '../src/validation.php';
 require_once '../src/flash.php';

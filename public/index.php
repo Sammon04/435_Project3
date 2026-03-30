@@ -1,4 +1,11 @@
 <?php
+
+//This is unsurprisingly the main page
+//On load we get a csrf token and the list of tasks from the JSON file
+//Then we filter them based on anything in the filter form
+//The filter form preserves inputs after filtering and reloading the page
+//The list just loops through every task in $tasks and displays whatever is there
+
 require_once '../src/storage.php';
 require_once '../src/flash.php';
 require_once '../src/csrf.php';
@@ -82,9 +89,9 @@ $filteredTasks = array_filter($tasks, function($task) use ($q, $priority) {
             </div>
 
             <?php if (empty($tasks)): ?>
-                <p>No tasks yet!</p>
+                <p class="alert">No tasks yet!</p>
             <?php elseif (empty($filteredTasks)): ?>
-                <p>No tasks match filter!</p>
+                <p class="alert">No tasks match filter!</p>
             <?php else: ?>
 
                 <?php if (!empty($_GET) && !empty($filteredTasks)): ?>
