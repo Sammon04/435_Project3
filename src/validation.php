@@ -4,7 +4,7 @@
 //If they return true, it means the input 'passed' the test
 
 function validateSpecialChars(string $text): bool {
-    return !preg_match('/[^a-zA-Z0-9 \/-_!?.,]/', $text);
+    return !preg_match('/[^\p{L}\p{N}\s\.\,\!\?\-_\(\)\'":\/]/u', $text);
 }
 
 function validateLength(string $text, int $length): bool {
@@ -34,6 +34,10 @@ function validateForm(array $data): array {
 
     if (!validateSpecialChars($data['title'])) {
         $errors['title'] = 'Invalid characters in title';
+    }
+
+    if (!validateLength($data['description'], 500)) {
+        $errors['description'] = 'Description must be less than 500 characters';
     }
 
     if (!validateSpecialChars($data['description'])) {
